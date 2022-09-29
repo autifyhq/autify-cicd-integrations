@@ -12,7 +12,7 @@ const CircleCIBadge = ({ org, repo }: Props) => {
   );
   const src = new URL("https://img.shields.io");
   src.pathname = `/circleci/build/gh/${org}/${repo}/${branch}`;
-  src.searchParams.set("label", branch);
+  src.searchParams.set("label", "nightly-test");
   return <Badge logo="circleci" src={src} href={href} />;
 };
 
