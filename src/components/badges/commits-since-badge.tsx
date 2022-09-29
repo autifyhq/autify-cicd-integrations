@@ -18,8 +18,9 @@ const useLatest = (org: string, repo: string) => {
   const [latest, setLatest] = useState<string>();
   useEffect(() => {
     const setAsync = async (org: string, repo: string) => {
-      const release = await fetchReleaseJson(org, repo);
-      setLatest(release.message);
+      let { message } = await fetchReleaseJson(org, repo);
+      if (repo.includes("bitrise")) message = message.slice(1);
+      setLatest(message);
     };
     setAsync(org, repo);
   }, []);
