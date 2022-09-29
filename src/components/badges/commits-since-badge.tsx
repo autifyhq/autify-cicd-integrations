@@ -9,6 +9,7 @@ const CommitsSinceBadge = ({ org, repo }: Props) => {
   const href = new URL(`https://github.com/${org}/${repo}/commits`);
   const src = new URL("https://img.shields.io");
   src.pathname = `/github/commits-since/${org}/${repo}/latest`;
+  src.searchParams.set("label", "commits since latest");
   return <Badge logo="github" src={src} href={href} />;
 };
 
