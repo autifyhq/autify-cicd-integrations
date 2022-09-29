@@ -19,7 +19,7 @@ const useLatest = (org: string, repo: string) => {
   useEffect(() => {
     const setAsync = async (org: string, repo: string) => {
       let { message } = await fetchReleaseJson(org, repo);
-      if (repo.includes("bitrise")) message = message.slice(1);
+      if (repo.includes("bitrise") || org === "jenkinsci") message = message.slice(1);
       setLatest(message);
     };
     setAsync(org, repo);
