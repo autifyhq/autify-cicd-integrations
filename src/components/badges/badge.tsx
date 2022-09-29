@@ -10,7 +10,7 @@ const Badge = ({ logo, src, href }: Props) => {
   src.searchParams.set("style", style);
   src.searchParams.set("logo", logo);
   return (
-    <a href={href.toString()}>
+    <a href={href.toString()} target="_blank">
       <img src={src.toString()} />
     </a>
   );
