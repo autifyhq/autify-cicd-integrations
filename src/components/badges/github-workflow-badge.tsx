@@ -11,8 +11,9 @@ const GitHubWorkflowBadge = ({ org, repo, workflow }: Props) => {
     `https://github.com/${org}/${repo}/actions/workflows/${workflow}.yml`
   );
   const src = new URL("https://img.shields.io");
-  src.pathname = `/github/workflow/status/${org}/${repo}/${workflow}`;
+  src.pathname = `/github/actions/workflow/status/${org}/${repo}/${workflow}.yml`;
   src.searchParams.set("label", workflow);
+  src.searchParams.set("branch", "main");
   return <Badge logo="github" src={src} href={href} />;
 };
 
